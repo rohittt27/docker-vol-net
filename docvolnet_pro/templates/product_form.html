@@ -1,0 +1,17 @@
+<!-- crud/templates/crud/product_form.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if form.instance.id %}Edit Product{% else %}Create Product{% endif %}</title>
+</head>
+<body>
+    <h1>{% if form.instance.id %}Edit Product{% else %}Create Product{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="{% if form.instance.id %}Update{% else %}Create{% endif %}">
+    </form>
+    <a href="{% url 'product_list' %}">Cancel</a>
+</body>
+</html>
